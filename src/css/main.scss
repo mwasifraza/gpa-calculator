@@ -3,18 +3,19 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
+a{
+    text-decoration: none;
+}
 .hide{
     display: none !important;
 }
 .header{
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     height: 100vh;
+    .logo{
+        position: relative;
+    }
     .box{
-        width: 70%;
         h1{
             font-size: 3em;
             color: #505050;
@@ -37,7 +38,7 @@ body{
             }
             .form-control{
                 background-color: transparent;
-                font-size: 5em;
+                font-size: 4em;
                 border: 0;
                 border-bottom: 5px solid #bbb;
                 border-radius: 0;
@@ -55,5 +56,13 @@ body{
     .btn{
         font-size: 2.5em;
         border-width: 5px;
+    }
+}
+.credits{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    h6{
+        font-size: 1.2em;
     }
 }
