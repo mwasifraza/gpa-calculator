@@ -1,30 +1,31 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
     <nav className="navbar navbar-expand-md">
     <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link className='navbar-brand' to=''>
             <img src="image/logo.svg" alt="logo" width={50} />
             &nbsp;&nbsp;GPA Calculator
-        </a>
+        </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">Calculate GPA</a>
+                    <Link className='nav-link' to='/'>Calculate GPA</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">GPA Scale</a>
+                    <Link className='nav-link active' to='/calculate'>GPA Scale</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Contact</a>
+                    <Link className='nav-link' to=''>Contact</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">FAQ</a>
+                    <Link className='nav-link' to=''>FAQ</Link>
                 </li>
             </ul>
         </div>
