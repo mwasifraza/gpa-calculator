@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FormGpaOneRow from './FormGpaOneRow';
 import getGp from './Calculation';
 
@@ -78,16 +78,24 @@ class FormGpa extends React.Component {
         </form>
         <div className='row mt-4'>
             <div className='col-md-4 d-flex align-items-center'>
-                <h6 className='mb-0'>Semester 01 GPA: <span id='cgpr'>0.00</span></h6>
+                <h5 className='mb-0'>Semester 01 GPA: <span id='cgpr'>0.00</span></h5>
             </div>
-            <div className='col-md-6'>
-                <button type="button"  onClick={props.addChild} className='btn rounded-0 bg-my-secondary' id='add-course'>
-                    <i className='fas fa-plus'></i> Add Course
+        </div><hr />
+        <div className='row'>
+            <div className='col-md-4'>
+                <button type="button" onClick={props.addChild} className='btn rounded-0 shadow-none btn-secondary w-100' id=''>
+                  {/* <i className='fas fa-plus'></i> */}
+                  Add Course
                 </button>
-            {/* </div>            
-            <div className='col-md-3'> */}
-                <button type="button"  onClick={props.removeChild} className='btn rounded-0 mx-1 bg-my-secondary' id='add-course'>
-                    <i className='fas fa-times'></i> Remove Course
+            </div>            
+            <div className='col-md-4'>
+                <button type="button" onClick={props.removeChild} className='btn rounded-0 shadow-none mx-1 btn-secondary w-100' id=''>
+                  Remove Course
+                </button>
+            </div>            
+            <div className='col-md-4'>
+                <button type="button" className='btn rounded-0 shadow-none mx-1 btn-secondary w-100' id=''>
+                  Add to Report
                 </button>
             </div>            
         </div>
