@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FormGpaOneRow from './FormGpaOneRow';
 import getGp from './Calculation';
 
@@ -88,7 +88,45 @@ class FormGpa extends React.Component {
     }
   }
   
-  const ParentComponent = props => (
+  const ParentComponent = props => {
+    
+    // console.log(JSON.parse(data));
+
+    const getLocalData = () => {
+      let data = localStorage.getItem("gpa-report");
+      if (data){ return JSON.parse(data); }
+      else{ return [] };
+    }
+    
+    const [items, setItems] = useState(getLocalData());
+
+    const addToReport = () => {
+      const semester = {};
+
+      let form = document.getElementById('gpa-form-elem');
+      let x = document.getElementById('obt-marks');
+      let y = document.getElementById('percent');
+      let z = document.getElementById('cgpr');
+
+      semester.no = 1;
+      semester.marks = parseInt(x.innerHTML, 10);
+      semester.percent = parseFloat(y.innerHTML);
+      semester.cgpr = parseFloat(z.innerHTML);
+
+      setItems([... items, semester]);
+
+      form.reset();
+      x.innerHTML = "0";
+      y.innerHTML = "0.00";
+      z.innerHTML = "0.00";
+
+    };
+
+    useEffect(() => {
+      localStorage.setItem("gpa-report", JSON.stringify(items));
+    }, [items]);
+    
+    return (
     <div className='bg-body shadow rounded p-3'>
         <form id='gpa-form-elem'>
             <h3>Semester 01</h3>
@@ -119,12 +157,12 @@ class FormGpa extends React.Component {
                 </button>
             </div>            
             <div className='col-md-4'>
-                <button type="button" className='btn rounded-0 shadow-none mx-1 btn-secondary w-100' id=''>
+                <button type="button" onClick={addToReport} className='btn rounded-0 shadow-none mx-1 btn-secondary w-100' id=''>
                   Add to Report
                 </button>
             </div>            
         </div>
     </div>
-  );
+  )};
 
 export default FormGpa
