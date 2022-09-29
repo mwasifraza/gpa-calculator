@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FormGpaOneRow from './FormGpaOneRow';
+import ReportTable from './ReportTable';
 import getGp from './Calculation';
 
 class FormGpa extends React.Component {
@@ -127,42 +128,49 @@ class FormGpa extends React.Component {
     }, [items]);
     
     return (
-    <div className='bg-body shadow rounded p-3'>
-        <form id='gpa-form-elem'>
-            <h3>Semester 01</h3>
-            <hr />
-            {props.children}
-        </form>
-        <div className='row mt-4'>
-            <div className='col-md-4'>
-                <h5 className='mb-0'>Obtained Marks: <span id='obt-marks'>0</span></h5>
-            </div>
-            <div className='col-md-4'>
-                <h5 className='mb-0'>Percentage: <span id='percent'>0.00</span>%</h5>
-            </div>
-            <div className='col-md-4'>
-                <h5 className='mb-0'>GPA: <span id='cgpr'>0.00</span></h5>
-            </div>
-        </div><hr />
-        <div className='row'>
-            <div className='col-md-4'>
-                <button type="button" onClick={props.addChild} className='btn rounded-0 shadow-none btn-secondary w-100' id=''>
-                  {/* <i className='fas fa-plus'></i> */}
-                  Add Course
-                </button>
-            </div>            
-            <div className='col-md-4'>
-                <button type="button" onClick={props.removeChild} className='btn rounded-0 shadow-none mx-1 btn-secondary w-100' id=''>
-                  Remove Course
-                </button>
-            </div>            
-            <div className='col-md-4'>
-                <button type="button" onClick={addToReport} className='btn rounded-0 shadow-none mx-1 btn-secondary w-100' id=''>
-                  Add to Report
-                </button>
-            </div>            
+      <>
+      <div className='row'>
+        <div className='col-sm-7 bg-body shadow rounded p-3 m-2'>
+          <h3>Semester 01</h3>
+          <hr />
+          <form id='gpa-form-elem'>
+              {props.children}
+          </form>
+          <div className='row mt-4'>
+              <div className='col-md-4'>
+                  <h5 className='mb-0'>Obtained Marks: <span id='obt-marks'>0</span></h5>
+              </div>
+              <div className='col-md-4'>
+                  <h5 className='mb-0'>Percentage: <span id='percent'>0.00</span>%</h5>
+              </div>
+              <div className='col-md-4'>
+                  <h5 className='mb-0'>GPA: <span id='cgpr'>0.00</span></h5>
+              </div>
+          </div><hr />
+          <div className='row'>
+              <div className='col-md-4'>
+                  <button type="button" onClick={props.addChild} className='btn rounded-0 shadow-none btn-secondary w-100' id=''>
+                    {/* <i className='fas fa-plus'></i> */}
+                    Add Course
+                  </button>
+              </div>            
+              <div className='col-md-4'>
+                  <button type="button" onClick={props.removeChild} className='btn rounded-0 shadow-none mx-1 btn-secondary w-100' id=''>
+                    Remove Course
+                  </button>
+              </div>            
+              <div className='col-md-4'>
+                  <button type="button" onClick={addToReport} className='btn rounded-0 shadow-none mx-1 btn-secondary w-100' id=''>
+                    Add to Report
+                  </button>
+              </div>            
+          </div>
         </div>
-    </div>
+        <div className='col-sm-4 bg-body rounded shadow p-3 m-2 ms-auto'>
+          <ReportTable />
+        </div>
+      </div>
+    </>
   )};
 
 export default FormGpa

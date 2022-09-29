@@ -10,7 +10,7 @@ const ReportTable = () => {
 
   return (
     <>
-    <div className='bg-body rounded shadow p-3'>
+    <div className=''>
         <h3>Report</h3>
         <hr />
         <table className='table table-sm'>

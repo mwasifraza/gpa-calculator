@@ -1,7 +1,6 @@
 import React from 'react';
-import FormGpa from './FormGpa';
-import ReportTable from './ReportTable';
-import Navbar from './Navbar';
+import FormGpa from './elements/FormGpa';
+import Navbar from './elements/Navbar';
 
 const Calculate = () => {
   return (
@@ -17,11 +16,10 @@ const Calculate = () => {
                     </div>
                 </div>
                 <div className='row gpa-form'>
-                    <div className='offset-sm-1 col-sm-7'>
-                        <FormGpa />
-                    </div>
-                    <div className='col-sm-3'>
-                        <ReportTable />
+                    <div className='col-sm-11 mx-auto'>
+                        <div className='p-1'>
+                            <FormGpa />
+                        </div>
                     </div>
                 </div>
             </div>
