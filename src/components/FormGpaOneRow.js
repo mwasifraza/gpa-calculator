@@ -16,11 +16,11 @@ const FormGpaOneRow = props => {
                 <option value="3">3</option>
             </select>
         </div>
-        <div className='col-md-1'>
+        <div className='col-md-2'>
             <input type="text" className='form-control shadow-none border border-white rounded-0' id='gp' name="gp" readOnly />
         </div>
-        <div className='offset-md-1 col-md-1'>
-            {/* <span className='remove-icon'><i className='fas fa-times' onClick={event => props.removeChild(props.id)}></i></span> */}
+        <div className='col-md-1'>
+            {/* <span className='remove-icon'><i className='fas fa-times'></i></span> */}
         </div>
     </div>
     </>

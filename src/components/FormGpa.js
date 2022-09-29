@@ -39,12 +39,31 @@ class FormGpa extends React.Component {
     onCalculateGP = (id) => {
       // for grade point of each course
       let parent = document.getElementById(id);
-      let marks = parseInt(parent.querySelector('#marks').value, 10);
-      let credit = parseInt(parent.querySelector('#credit').value, 10);
+      let cr_marks = parseInt(parent.querySelector('#marks').value, 10);
+      let cr_credit = parseInt(parent.querySelector('#credit').value, 10);
       let gp = parent.querySelector('#gp');
 
-      let course_gp = parseFloat(getGp(marks) * credit).toFixed(2);
+      let course_gp = parseFloat(getGp(cr_marks) * cr_credit).toFixed(2);
       gp.value = (course_gp > 0) ? course_gp : "0";
+
+      // for total marks of each semester
+      let obtMarks = document.getElementById('obt-marks');
+      let percent = document.getElementById('percent');
+      let marks = document.querySelectorAll('#marks');
+      let total_marks = 0, numOfCourses = 0, pc = 0;
+      
+      marks.forEach(m => {
+        let num = parseInt(m.value, 10);
+        if(num && num != 0){
+          numOfCourses += 1;
+          total_marks += num;
+        }
+      })
+      numOfCourses *= 100;
+      pc = parseFloat((total_marks/numOfCourses)*100).toFixed(2);
+
+      percent.innerHTML = (pc > 0) ? pc : "0.00";
+      obtMarks.innerHTML = total_marks;
 
       // for cgpr of each semester
       let cgpr = document.getElementById('cgpr');
@@ -77,8 +96,14 @@ class FormGpa extends React.Component {
             {props.children}
         </form>
         <div className='row mt-4'>
-            <div className='col-md-4 d-flex align-items-center'>
-                <h5 className='mb-0'>Semester 01 GPA: <span id='cgpr'>0.00</span></h5>
+            <div className='col-md-4'>
+                <h5 className='mb-0'>Obtained Marks: <span id='obt-marks'>0</span></h5>
+            </div>
+            <div className='col-md-4'>
+                <h5 className='mb-0'>Percentage: <span id='percent'>0.00</span>%</h5>
+            </div>
+            <div className='col-md-4'>
+                <h5 className='mb-0'>GPA: <span id='cgpr'>0.00</span></h5>
             </div>
         </div><hr />
         <div className='row'>
