@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import SemesterForm from './SemesterForm';
 import FormGpaOneRow from './FormGpaOneRow';
 import ReportTable from './ReportTable';
-import getGp from './Calculation';
+import getGp from './GpScale';
 
 class FormGpa extends React.Component {
     state = {
@@ -91,8 +92,6 @@ class FormGpa extends React.Component {
   
   const ParentComponent = props => {
     
-    // console.log(JSON.parse(data));
-
     const getLocalData = () => {
       let data = localStorage.getItem("gpa-report");
       if (data){ return JSON.parse(data); }
@@ -100,6 +99,7 @@ class FormGpa extends React.Component {
     }
     
     const [items, setItems] = useState(getLocalData());
+    let semNum = (items.length > 0) ? (items[items.length-1].no)+1 : 1;
 
     const addToReport = () => {
       const semester = {};
@@ -109,7 +109,7 @@ class FormGpa extends React.Component {
       let y = document.getElementById('percent');
       let z = document.getElementById('cgpr');
 
-      semester.no = 1;
+      semester.no = semNum;
       semester.marks = parseInt(x.innerHTML, 10);
       semester.percent = parseFloat(y.innerHTML);
       semester.cgpr = parseFloat(z.innerHTML);
@@ -130,44 +130,11 @@ class FormGpa extends React.Component {
     return (
       <>
       <div className='row'>
-        <div className='col-sm-7 bg-body shadow rounded p-3 m-2'>
-          <h3>Semester 01</h3>
-          <hr />
-          <form id='gpa-form-elem'>
-              {props.children}
-          </form>
-          <div className='row mt-4'>
-              <div className='col-md-4'>
-                  <h5 className='mb-0'>Obtained Marks: <span id='obt-marks'>0</span></h5>
-              </div>
-              <div className='col-md-4'>
-                  <h5 className='mb-0'>Percentage: <span id='percent'>0.00</span>%</h5>
-              </div>
-              <div className='col-md-4'>
-                  <h5 className='mb-0'>GPA: <span id='cgpr'>0.00</span></h5>
-              </div>
-          </div><hr />
-          <div className='row'>
-              <div className='col-md-4'>
-                  <button type="button" onClick={props.addChild} className='btn rounded-0 shadow-none btn-secondary w-100' id=''>
-                    {/* <i className='fas fa-plus'></i> */}
-                    Add Course
-                  </button>
-              </div>            
-              <div className='col-md-4'>
-                  <button type="button" onClick={props.removeChild} className='btn rounded-0 shadow-none mx-1 btn-secondary w-100' id=''>
-                    Remove Course
-                  </button>
-              </div>            
-              <div className='col-md-4'>
-                  <button type="button" onClick={addToReport} className='btn rounded-0 shadow-none mx-1 btn-secondary w-100' id=''>
-                    Add to Report
-                  </button>
-              </div>            
-          </div>
+        <div className='col-sm-7 bg-body shadow rounded p-3 mx-4 my-2 h-100'>
+          <SemesterForm semNo={semNum} children={props.children} addChild={props.addChild} removeChild={props.removeChild} report={addToReport} />
         </div>
-        <div className='col-sm-4 bg-body rounded shadow p-3 m-2 ms-auto'>
-          <ReportTable />
+        <div className='col-sm-4 bg-body rounded shadow p-3 mx-4 my-2 ms-auto'>
+          <ReportTable localdata={items} />
         </div>
       </div>
     </>

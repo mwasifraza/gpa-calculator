@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
-const ReportTable = () => {
-    const getLocalData = () => {
-        let data = localStorage.getItem("gpa-report");
-        if (data){ return JSON.parse(data); }
-        else{ return [] };
-    }
-    const localdata = getLocalData();
-
+const ReportTable = props => {
   return (
     <>
-    <div className=''>
+    <div>
         <h3>Report</h3>
         <hr />
         <table className='table table-sm'>
@@ -24,7 +17,7 @@ const ReportTable = () => {
             </thead>
             <tbody>
                 { 
-                    localdata.map((elem, index) => {
+                    props.localdata.map((elem, index) => {
                         return(
                             <tr key={index}>
                                 <td>{elem.no}</td>
