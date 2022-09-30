@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 const ReportTable = props => {
   return (
@@ -31,7 +31,7 @@ const ReportTable = props => {
                 }
             </tbody>
         </table>
-        <h6 className='text-end'>Total CGPA: <span>0.00</span></h6>
+        <h6 className='text-end'>Total CGPA: <span>{props.cgpa}</span></h6>
     </div>
     </>
   )

@@ -1,5 +1,5 @@
 import React from 'react';
-import FormGpa from './elements/FormGpa';
+import GpaSection from './elements/GpaSection';
 import Navbar from './elements/Navbar';
 
 const Calculate = () => {
@@ -18,7 +18,7 @@ const Calculate = () => {
                 <div className='row gpa-form'>
                     <div className='col-sm-11 mx-auto'>
                         <div className='p-1'>
-                            <FormGpa />
+                            <GpaSection />
                         </div>
                     </div>
                 </div>

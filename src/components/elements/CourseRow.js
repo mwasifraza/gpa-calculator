@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FormGpaOneRow = props => {
+const CourseRow = props => {
   return (
     <>
     <div className='row g-0 px-1' id={props.id}>
@@ -20,11 +20,11 @@ const FormGpaOneRow = props => {
             <input type="text" className='form-control shadow-none border border-white rounded-0' id='gp' name="gp" readOnly />
         </div>
         <div className='col-md-1'>
-            {/* <span className='remove-icon'><i className='fas fa-times'></i></span> */}
+            <span className='remove-icon'><i className='fas fa-times'></i></span>
         </div>
     </div>
     </>
   )
 }
 
-export default FormGpaOneRow
+export default CourseRow

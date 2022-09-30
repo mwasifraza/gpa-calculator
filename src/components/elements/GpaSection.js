@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import SemesterForm from './SemesterForm';
-import FormGpaOneRow from './FormGpaOneRow';
+import CourseRow from './CourseRow';
 import ReportTable from './ReportTable';
-import getGp from './GpScale';
+import { getGp, sumOfCgpa, getLocalData } from './GpScale';
 
-class FormGpa extends React.Component {
+class GpaSection extends React.Component {
     state = {
       numChildren: 4
     }
@@ -14,7 +14,7 @@ class FormGpa extends React.Component {
   
       for (var i = 1; i <= this.state.numChildren; i += 1) {
         // if(children.length < 8){
-          children.push(<FormGpaOneRow key={i} id={'form-row-'+i} calculateGP={this.onCalculateGP} removeChild={this.onRemoveChild} />);
+          children.push(<CourseRow key={i} id={'form-row-'+i} calculateGP={this.onCalculateGP} removeChild={this.onRemoveChild} />);
         // }
       };
   
@@ -91,15 +91,10 @@ class FormGpa extends React.Component {
   }
   
   const ParentComponent = props => {
-    
-    const getLocalData = () => {
-      let data = localStorage.getItem("gpa-report");
-      if (data){ return JSON.parse(data); }
-      else{ return [] };
-    }
-    
     const [items, setItems] = useState(getLocalData());
-    let semNum = (items.length > 0) ? (items[items.length-1].no)+1 : 1;
+
+    let semNum = (items.length > 0) ? ((items[items.length-1].no)+1) : 1;
+    let cgpa = (items.length > 0) ? (sumOfCgpa(items)/items.length) : "0.00";
 
     const addToReport = () => {
       const semester = {};
@@ -134,10 +129,10 @@ class FormGpa extends React.Component {
           <SemesterForm semNo={semNum} children={props.children} addChild={props.addChild} removeChild={props.removeChild} report={addToReport} />
         </div>
         <div className='col-sm-4 bg-body rounded shadow p-3 mx-4 my-2 ms-auto'>
-          <ReportTable localdata={items} />
+          <ReportTable localdata={items} cgpa={cgpa} />
         </div>
       </div>
     </>
   )};
 
-export default FormGpa
+export default GpaSection

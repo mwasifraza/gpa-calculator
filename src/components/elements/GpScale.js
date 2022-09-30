@@ -1,5 +1,5 @@
 
-const getGp = m => {
+export const getGp = m => {
     if(m >= 90 && m <= 100) return 4;
     else if(m >= 85 && m <= 89) return 4;
     else if(m >= 80 && m <= 84) return 3.8;
@@ -14,4 +14,16 @@ const getGp = m => {
     else return 0;
 }
 
-export default getGp
+export const sumOfCgpa = arr => {
+    let num = 0;
+    arr.forEach(x => {
+        num += x.cgpr;
+    })
+    return num;
+}
+
+export const getLocalData = () => {
+    let data = localStorage.getItem("gpa-report");
+    if (data){ return JSON.parse(data); }
+    else{ return [] };
+  }
