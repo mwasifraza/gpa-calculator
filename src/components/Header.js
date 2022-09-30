@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './elements/Footer';
 
 function validateName(){
     let fullname = document.querySelector('.form-control').value;
@@ -43,16 +44,7 @@ const Header = () => {
                     </div>
                     <button className='btn btn-outline-primary px-5 mt-5' type="button" disabled>Continue</button>
                 </div>
-                <div className='footer py-2 px-3'>
-                    <ul className='header-socials'>
-                        <li><a href="#"><i className="fab fa-facebook"></i></a></li>
-                        <li><a href="#"><i className="fab fa-linkedin"></i></a></li>
-                        <li><a href="#"><i className="fab fa-github"></i></a></li>
-                    </ul>
-                    <div className='d-flex align-items-center'>
-                        <h6><i className='far fa-copyright'></i> 2022 | Designed by <a href='#'>Wasif Raza</a></h6>
-                    </div>
-                </div>
+                <Footer />
             </div>
         </div>
     </div>
