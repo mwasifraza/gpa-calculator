@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                    <Link className='nav-link active' to='/calculate'>Calculate GPA</Link>
+                    <Link className='nav-link active' to='/'>Calculate GPA</Link>
                 </li>
                 <li className="nav-item">
                     <Link className='nav-link' to='/scale'>GPA Scale</Link>
