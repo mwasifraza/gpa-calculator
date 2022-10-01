@@ -94,7 +94,7 @@ class GpaSection extends React.Component {
     const [items, setItems] = useState(getLocalData());
 
     let semNum = (items.length > 0) ? ((items[items.length-1].no)+1) : 1;
-    let cgpa = (items.length > 0) ? (sumOfCgpa(items)/items.length) : "0.00";
+    let cgpa = (items.length > 0) ? (sumOfCgpa(items)/items.length).toFixed(2) : "0.00";
 
     const addToReport = () => {
       const semester = {};
@@ -125,10 +125,10 @@ class GpaSection extends React.Component {
     return (
       <>
       <div className='row'>
-        <div className='col-sm-7 bg-body shadow rounded p-3 mx-4 my-2 h-100'>
+        <div className='col-lg-7 bg-body shadow rounded p-3 mx-4 my-2 h-100'>
           <SemesterForm semNo={semNum} children={props.children} addChild={props.addChild} removeChild={props.removeChild} report={addToReport} />
         </div>
-        <div className='col-sm-4 bg-body rounded shadow p-3 mx-4 my-2 ms-auto'>
+        <div className='col-lg-4 bg-body rounded shadow p-3 mx-4 my-2 ms-auto h-100'>
           <ReportTable localdata={items} cgpa={cgpa} />
         </div>
       </div>

@@ -11,7 +11,7 @@ const Calculate = () => {
             <div className='page-header my-4'>
                 <Navbar />
                 <div className='row main-head'>
-                    <div className='col-sm-6 mx-auto text-center mt-5 pt-5 z-2'>
+                    <div className='col-lg-6 col-md-8 col-sm-10 mx-auto text-center mt-5 pt-5 z-2'>
                         {/* <i class="fas fa-university fa-3x my-primary my-2"></i> */}
                         <h1>GPA Calculator</h1>
                         <p>Calculate your high school, college and cumulative GPA, check your grades and understand how the GPA scale works.</p>

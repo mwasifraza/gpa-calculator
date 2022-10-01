@@ -142,6 +142,7 @@ a,p{
         position: relative;
         border-radius: 0.5rem;
         background-color: $bg-color;
+        overflow: hidden;
 
         .main-head{
             h1{
@@ -195,6 +196,9 @@ a,p{
 
             a{
                 font-size: 2rem;
+                &:hover{
+                    color: $secondary-color;
+                }
             }
         }
     }
@@ -202,5 +206,9 @@ a,p{
         margin-bottom: 0;
         font-size: 1.2em;
         color: $text-color;
+
+        a:hover{
+            color: $secondary-color;
+        }
     }
 }
