@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import SemesterForm from './SemesterForm';
 import CourseRow from './CourseRow';
 import ReportTable from './ReportTable';
-import { getGp, sumOfCgpa, getLocalData } from './GpScale';
+import { getGp, sumOfObj, getLocalData } from './GpScale';
 
 class GpaSection extends React.Component {
     state = {
@@ -95,7 +95,11 @@ class GpaSection extends React.Component {
     const [items, setItems] = useState(getLocalData());
 
     let semNum = (items.length > 0) ? ((items[items.length-1].no)+1) : 1;
-    let cgpa = (items.length > 0) ? (sumOfCgpa(items)/items.length).toFixed(2) : "0.00";
+
+    const totals = {};
+    totals.obt  = (items.length > 0) ? (sumOfObj(items, "marks")) : "0";
+    totals.pc   = (items.length > 0) ? (sumOfObj(items, "percent")/items.length).toFixed(2) : "0";
+    totals.cgpa = (items.length > 0) ? (sumOfObj(items, "cgpr")/items.length).toFixed(2) : "0.00";
 
     const addToReport = () => {
       const semester = {};
@@ -149,7 +153,7 @@ class GpaSection extends React.Component {
           <SemesterForm semNo={semNum} children={props.children} addChild={props.addChild} removeChild={props.removeChild} report={addToReport} />
         </div>
         <div className='col-lg-4 bg-body rounded shadow p-3 mx-4 my-2 ms-auto h-100'>
-          <ReportTable localdata={items} cgpa={cgpa} remove={removeMyDetails}/>
+          <ReportTable localdata={items} totals={totals} remove={removeMyDetails}/>
         </div>
       </div>
     </>

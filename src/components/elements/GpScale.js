@@ -14,10 +14,10 @@ export const getGp = m => {
     else return 0;
 }
 
-export const sumOfCgpa = arr => {
+export const sumOfObj = (arr, key) => {
     let num = 0;
     arr.forEach(x => {
-        num += x.cgpr;
+        num += x[key]
     })
     return num;
 }
