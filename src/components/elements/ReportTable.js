@@ -1,6 +1,16 @@
-import React from 'react'
+import React from 'react';
+import Swal from 'sweetalert2';
 
 const ReportTable = props => {
+    const removeMyDetails = () => {
+        localStorage.removeItem("gpa-report");
+        Swal.fire({
+            icon: 'success',
+            title: 'Deleted Successfully!',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
   return (
     <>
     <div>
@@ -29,9 +39,20 @@ const ReportTable = props => {
                     })
                     // <tr><td colSpan={4}><h4 className='text-center text-muted'>No Data</h4></td></tr>
                 }
+                <tr>
+                    <td colSpan={4} className=""><strong>Total</strong></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{props.cgpa}</td>
+                </tr>
             </tbody>
         </table>
-        <h6 className='text-end'>Total CGPA: <span>{props.cgpa}</span></h6>
+        <div className='d-grid g-2'>
+            <button type="button" className='btn btn-outline-secondary btn-sm rounded-0 shadow-none' onClick={removeMyDetails}>Remove</button>       
+        </div>
     </div>
     </>
   )
