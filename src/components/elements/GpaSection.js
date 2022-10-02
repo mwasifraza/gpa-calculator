@@ -126,6 +126,18 @@ class GpaSection extends React.Component {
       }
     };
 
+    const removeMyDetails = () => {
+      if(items.length > 0){
+        setItems([]);
+        Swal.fire({
+            icon: 'success',
+            title: 'Deleted Successfully!',
+            showConfirmButton: false,
+            timer: 1500
+        })
+      }
+    }
+
     useEffect(() => {
       localStorage.setItem("gpa-report", JSON.stringify(items));
     }, [items]);
@@ -137,7 +149,7 @@ class GpaSection extends React.Component {
           <SemesterForm semNo={semNum} children={props.children} addChild={props.addChild} removeChild={props.removeChild} report={addToReport} />
         </div>
         <div className='col-lg-4 bg-body rounded shadow p-3 mx-4 my-2 ms-auto h-100'>
-          <ReportTable localdata={items} cgpa={cgpa} />
+          <ReportTable localdata={items} cgpa={cgpa} remove={removeMyDetails}/>
         </div>
       </div>
     </>
