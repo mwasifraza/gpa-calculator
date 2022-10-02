@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 import SemesterForm from './SemesterForm';
 import CourseRow from './CourseRow';
 import ReportTable from './ReportTable';
@@ -109,13 +110,20 @@ class GpaSection extends React.Component {
       semester.percent = parseFloat(y.innerHTML);
       semester.cgpr = parseFloat(z.innerHTML);
 
-      setItems([... items, semester]);
-
-      form.reset();
-      x.innerHTML = "0";
-      y.innerHTML = "0.00";
-      z.innerHTML = "0.00";
-
+      if(semester.marks > 0 && semester.cgpr > 0){
+        setItems([... items, semester]);
+        form.reset();
+        x.innerHTML = "0";
+        y.innerHTML = "0.00";
+        z.innerHTML = "0.00";    
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Something went wrong!',
+          text: 'Please fill out the form first!',
+          confirmButtonText: 'Okay!'
+        })
+      }
     };
 
     useEffect(() => {
