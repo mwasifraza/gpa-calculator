@@ -18,7 +18,7 @@ const Calculate = () => {
                     </div>
                 </div>
                 <div className='row gpa-form py-5'>
-                    <div className='col-lg-11 col-sm-12 mx-auto z-2 bg-info'>
+                    <div className='col-lg-11 col-sm-12 mx-auto z-2'>
                         <div className='px-4 py-2'>
                             <GpaSection />
                         </div>
