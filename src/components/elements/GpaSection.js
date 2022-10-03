@@ -149,10 +149,10 @@ class GpaSection extends React.Component {
     return (
       <>
       <div className='row'>
-        <div className='col-lg-7 bg-body shadow rounded p-3 mx-4 my-2 h-100'>
+        <div className='col-lg-7 col-sm-12 bg-body shadow rounded p-3 my-2 h-100'>
           <SemesterForm semNo={semNum} children={props.children} addChild={props.addChild} removeChild={props.removeChild} report={addToReport} />
         </div>
-        <div className='col-lg-4 bg-body rounded shadow p-3 mx-4 my-2 ms-auto h-100'>
+        <div className='col-lg-4 col-md-8 col-sm-12 bg-body rounded shadow p-3 my-2 ms-lg-auto me-lg-0 mx-md-auto h-100'>
           <ReportTable localdata={items} totals={totals} remove={removeMyDetails}/>
         </div>
       </div>
