@@ -9,15 +9,15 @@ const SemesterForm = props => {
         <form id='gpa-form-elem'>
             {props.children}
         </form>
-        <div className='row mt-4'>
+        <div className='row g-0 mt-4'>
             <div className='col-sm-4 col-8 my-1 my-sm-0 mx-sm-0 mx-auto px-4 px-sm-2'>
-                <h6 className='mb-0 d-sm-block d-flex justify-content-between'>Obtained Marks: <span id='obt-marks'>0</span></h6>
+                <p className='h6 mb-0 d-sm-block d-flex justify-content-between'>Obtained Marks: <span id='obt-marks'>0</span></p>
             </div>
             <div className='col-sm-4 col-8 my-1 my-sm-0 mx-sm-0 mx-auto px-4 px-sm-2'>
-                <h6 className='mb-0 d-sm-block d-flex justify-content-between'>Percentage: <span id='percent'>0.00</span>%</h6>
+                <p className='h6 mb-0 d-sm-block d-flex justify-content-between'>Percentage: <span id='percent'>0.00</span></p>
             </div>
             <div className='col-sm-4 col-8 my-1 my-sm-0 mx-sm-0 mx-auto px-4 px-sm-2'>
-                <h6 className='mb-0 d-sm-block d-flex justify-content-between'>GPA: <span id='cgpr'>0.00</span></h6>
+                <p className='h6 mb-0 d-sm-block d-flex justify-content-between'>GPA: <span id='cgpr'>0.00</span></p>
             </div>
         </div>
         <hr />
