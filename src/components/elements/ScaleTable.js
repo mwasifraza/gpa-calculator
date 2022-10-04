@@ -4,11 +4,11 @@ import GradePointCriteria from './api/GpScaleApi'
 const ScaleTable = () => {
   return (
     <>
-    <div className='bg-body shadow rounded p-3'>
+    <div>
         <h3>GPA Scale</h3>
         <hr />
-        <table className='table table-bordered text-center'>
-            <thead className=''>
+        <table className='table table-bordered text-center table-sm'>
+            <thead className='table-dark'>
             <tr>
                 <th>Grade</th>
                 <th>Numeric Score</th>
