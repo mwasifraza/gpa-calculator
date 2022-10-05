@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+const pglink = [
+    { page: "Calculate GPA", link: "/" },
+    { page: "GPA Scale", link: "/scale" },
+    { page: "FAQ", link: "" }
+]
+
 const Navbar = () => {
   return (
     <>
@@ -15,18 +21,17 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
-                    <Link className='nav-link active' to='/'>Calculate GPA</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className='nav-link' to='/scale'>GPA Scale</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className='nav-link' to=''>Contact</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className='nav-link' to=''>FAQ</Link>
-                </li>
+                {pglink.map((el, key) => {
+                    let active = window.location.pathname === el.link ? "active" : "";
+                    return(
+                        <li className="nav-item" key={key}>
+                            <Link className={`nav-link ${active}`} to={ el.link }>{ el.page }</Link>
+                        </li>
+                    )
+                })}
+                {/* <li className="nav-item">
+                    <Link className='nav-link' to=''><i className='fas fa-envelope'></i></Link>
+                </li> */}
             </ul>
         </div>
     </div>

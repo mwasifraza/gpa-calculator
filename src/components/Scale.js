@@ -4,21 +4,20 @@ import Footer from './elements/Footer'
 import ScaleTable from './elements/ScaleTable'
 
 const Scale = () => {
-    // let activeLink = window.location.pathname;
   return (
     <>
     <div className='container'>
         <div className='row page'>
-            <div className='page-header my-4'>
+            <div className='page-content rounded-3 my-sm-4'>
                 <Navbar />
-                <div className='row main-head'>
+                <div className='row main-heading'>
                     <div className='col-lg-6 col-md-8 col-sm-10 mx-auto text-center mt-5 pt-4 z-2'>
                         {/* <i class="fas fa-university fa-3x my-primary my-2"></i> */}
                         <h1>GPA Scale</h1>
                         <p>Easily convert your letter grade or percentage grade to a 4-point system with our easy to use GPA converter and handy GPA scale.</p>
                     </div>
                 </div>
-                <div className='row gpa-form py-5'>
+                <div className='row body-content py-5'>
                     <div className='col-lg-10 col-md-11 col-sm-12 mx-auto z-2'>
                         <div className='px-4 py-2'>
                             <div className='row'>
