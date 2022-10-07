@@ -28,7 +28,7 @@ const GpaSection = () => {
     semester.cgpr = parseFloat(z.innerHTML);
 
     if(semester.marks > 0 && semester.cgpr > 0){
-      setItems([... items, semester]);
+      setItems([...items, semester]);
       form.reset();
       x.innerHTML = "0";
       y.innerHTML = "0.00";

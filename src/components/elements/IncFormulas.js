@@ -47,7 +47,7 @@ export const CalculateGP = (id) => {
     
     marks.forEach(m => {
       let num = parseInt(m.value, 10);
-      if(num && num != 0){
+      if(num && num !== 0){
         numOfCourses += 1;
         total_marks += num;
       }
@@ -66,13 +66,13 @@ export const CalculateGP = (id) => {
     
     gpa.forEach(e => {
       let each_gp = parseFloat(e.value);
-      if (each_gp && each_gp != 0){
+      if (each_gp && each_gp !== 0){
         total_gp = total_gp + each_gp;
       }
     });
     credits.forEach(c => {
       let each_cr = parseInt(c.value, 10);
-      if(each_cr && each_cr != 0){
+      if(each_cr && each_cr !== 0){
         total_credit += each_cr;
       }
     });

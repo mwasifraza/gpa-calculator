@@ -29,9 +29,6 @@ const Navbar = () => {
                         </li>
                     )
                 })}
-                {/* <li className="nav-item">
-                    <Link className='nav-link' to=''><i className='fas fa-envelope'></i></Link>
-                </li> */}
             </ul>
         </div>
     </div>
