@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import SemesterForm from './SemesterForm';
 import ReportTable from './ReportTable';
-import { sumOfObj, getLocalData } from './GpScale';
+import { sumOfObj, getLocalData } from './IncFormulas';
 
   
-const GpaSection = props => {
-  
+const GpaSection = () => {
+
   const [items, setItems] = useState(getLocalData());
   let semNum = (items.length > 0) ? ((items[items.length-1].no)+1) : 1;
 
