@@ -32,7 +32,7 @@ const ReportTable = props => {
                     )
                 }
 
-                {(props.localdata.length > 0) ? (
+                {props.localdata.length > 0 && (
                     <>
                     <tr>
                         <td colSpan={4} className=""><strong>Total</strong></td>
@@ -44,12 +44,12 @@ const ReportTable = props => {
                         <td>{props.totals.cgpa}</td>
                     </tr>
                     </>
-                ):("")}
+                )}
                 
             </tbody>
         </table>
         <div className='d-flex justify-content-end'>
-            <button type="button" className='btn btn-outline-secondary btn-sm rounded-0 shadow-none' onClick={props.remove}>
+            <button type="button" className='my-btn-primary-2 my-btn-sm rounded-2 px-3 shadow-none' onClick={props.remove}>
                 <i className='fas fa-trash-alt'></i>&nbsp;Remove
             </button>       
         </div>

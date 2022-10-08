@@ -41,11 +41,11 @@ const SemesterForm = props => {
         <hr />
         <div className='d-flex justify-content-center'>
             {courseList.length < 8 && (
-            <button type="button" onClick={addChild} className='btn rounded-0 shadow-none mx-1 btn-secondary' id=''>
+            <button type="button" onClick={addChild} className='my-btn-primary-1 rounded-2 px-4 shadow-none mx-1' id=''>
                 Add Course
             </button>)}
             
-            <button type="button" onClick={props.report} className='btn rounded-0 shadow-none mx-1 btn-secondary' id=''>
+            <button type="button" onClick={props.report} className='my-btn-primary-1 rounded-2 px-4 py-1 shadow-none mx-1' id=''>
                 Add to Report
             </button>
         </div>            
