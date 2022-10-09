@@ -27,7 +27,12 @@ const GpaSection = () => {
     semester.percent = parseFloat(y.innerHTML);
     semester.cgpr = parseFloat(z.innerHTML);
 
-    if(semester.marks > 0 && semester.cgpr > 0){
+    // if gp of any course is 0, it will throw an error and report will not be updated.
+    let gp_check = document.querySelectorAll('#gp');
+    let gp_validate = true;
+    gp_check.forEach(e => { if(e.value === "0") gp_validate = false; })
+
+    if(semester.marks > 0 && semester.cgpr > 0 && gp_validate){
       setItems([...items, semester]);
       form.reset();
       x.innerHTML = "0";
@@ -36,8 +41,9 @@ const GpaSection = () => {
     }else{
       Swal.fire({
         icon: 'error',
+        iconColor: '#ee6c4d',
         title: 'Something went wrong!',
-        text: 'Please fill out the form first!',
+        text: 'Please fill out the required fields!',
         confirmButtonText: 'Okay!',
         confirmButtonColor: '#ee6c4d',
         buttonsStyling: false,

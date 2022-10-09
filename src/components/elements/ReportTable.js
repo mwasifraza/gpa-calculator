@@ -49,9 +49,11 @@ const ReportTable = props => {
             </tbody>
         </table>
         <div className='d-flex justify-content-end'>
+        {props.localdata.length > 0 && (
             <button type="button" className='my-btn-primary-2 my-btn-sm rounded-2 px-3 shadow-none' onClick={props.remove}>
                 <i className='fas fa-trash-alt'></i>&nbsp;Remove
-            </button>       
+            </button>
+        )}    
         </div>
     </div>
     </>
