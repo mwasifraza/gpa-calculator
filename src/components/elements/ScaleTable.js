@@ -8,7 +8,7 @@ const ScaleTable = () => {
         <h3>GPA Scale</h3>
         <hr />
         <table className='table table-bordered text-center table-sm'>
-            <thead className='table-dark'>
+            <thead className='thead-primary'>
             <tr>
                 <th>Grade</th>
                 <th>Numeric Score</th>

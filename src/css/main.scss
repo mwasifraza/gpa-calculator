@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 // color variables
-$primary-color: #202A44;
-$secondary-color: #f1be63;
-$bg-color: #e8f4f8;
-$text-color: #303030;
+$primary-color: #3d5a80 ;
+$secondary-color: #ee6c4d ;
+$bg-color: #e0fbfc;
+$bg-color2: #98c1d9;
+$text-color: #293241;
 $heading-color: #505050;
 $white-color: #ffffff;
-// $icon-color: ;
+
 
 body{
     font-family: 'Roboto', sans-serif;
@@ -18,23 +19,20 @@ a{
 a,p{
     color: $text-color;
 }
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button{
+    display: none;
+}
+
+// some global classes
 .z-1{ z-index: 1; }
 .z-2{ z-index: 2; }
 .z-3{ z-index: 3; }
 
-// .bg-my-primary{
-//     background-color: $primary-color;
-// }
-// .my-primary{
-//     color: $primary-color;
-// }
-// .bg-my-secondary{
-//     background-color: $secondary-color;
-// }
-// .my-secondary{
-//     color: $secondary-color;
-// }
-
+.thead-primary{
+    background-color: $primary-color;
+    color: $white-color;
+}
 .my-btn-primary-1{
     background-color: transparent;
     border: 2px solid $secondary-color;
@@ -64,10 +62,9 @@ a,p{
 .hide{
     display: none !important;
 }
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button{
-    display: none;
-}
+
+
+// navbar css
 .navbar{
     .navbar-brand{
         font-size: 1.6rem;
@@ -78,9 +75,12 @@ a,p{
     }
     .nav-link.active{
         font-weight: 500;
+        color: $secondary-color;
     }
 }
 
+
+// header page css
 .header{
     position: relative;
     height: 100vh;
@@ -165,6 +165,8 @@ a,p{
     }
 }
 
+
+// sacle and calculate page css
 .page{
     position: relative;
     .page-content{
@@ -211,6 +213,7 @@ a,p{
         }
     }
 }
+
 
 // Footer CSS
 .footer{
