@@ -7,10 +7,13 @@ const Footer = () => {
         <ul className='header-socials d-flex m-0 p-0'>
             <li><a href="#"><i className="fab fa-facebook"></i></a></li>
             <li><a href="#"><i className="fab fa-linkedin"></i></a></li>
-            <li><a href="#"><i className="fab fa-github"></i></a></li>
+            <li><a href="https://github.com/mwasifraza/gpa-calculator" target="_blank" rel="noreferrer">
+              <i className="fab fa-github"></i>
+            </a></li>
         </ul>
         <div className='d-flex align-items-center'>
-            <h6><i className='far fa-copyright'></i> 2022 | Designed by <a href='#'>Wasif Raza</a></h6>
+            <h6><i className='far fa-copyright'></i> 2022 | All Rights Reserved.</h6>
+            {/* <h6><i className='far fa-copyright'></i> 2022 | Designed by <a href='#'>Wasif Raza</a></h6> */}
         </div>
     </div>
     </>

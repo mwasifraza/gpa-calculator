@@ -38,7 +38,10 @@ const GpaSection = () => {
         icon: 'error',
         title: 'Something went wrong!',
         text: 'Please fill out the form first!',
-        confirmButtonText: 'Okay!'
+        confirmButtonText: 'Okay!',
+        confirmButtonColor: '#ee6c4d',
+        buttonsStyling: false,
+        customClass: {confirmButton: 'my-btn-primary-1 rounded-2 px-4 py-1 shadow-none'}
       })
     }
   };
