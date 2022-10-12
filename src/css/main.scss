@@ -78,6 +78,16 @@ a,p{
         color: $secondary-color;
     }
 }
+@media(max-width: 767px){
+    .navbar{
+        .navbar-collapse{
+            background-color: $white-color;
+            padding: 0.2rem 1rem;
+            border-radius: 0.5rem;
+            margin: 0.2rem 0.4rem;
+        }
+    }
+}
 
 
 // header page css
