@@ -16,6 +16,9 @@ const SemesterForm = props => {
     }
     const formReset = () => {
         document.getElementById('gpa-form-elem').reset();
+        document.getElementById('obt-marks').innerHTML = "0";
+        document.getElementById('percent').innerHTML = "0.00";
+        document.getElementById('cgpr').innerHTML = "0.00";
     }
 
   return (
