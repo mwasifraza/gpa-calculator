@@ -14,11 +14,19 @@ const SemesterForm = props => {
         tempList.splice(id, 1);
         setCourseList(tempList);
     }
+    const formReset = () => {
+        document.getElementById('gpa-form-elem').reset();
+    }
 
   return (
     <>
     <div>
-    <h3>Semester #{props.semNo}</h3>
+        <div className='d-flex justify-content-between'>
+            <h3 className='m-0'>Semester #{props.semNo}</h3>
+            <button type="button" onClick={formReset} className='my-btn-primary-1 rounded-2 px-3 shadow-none'>
+                <i className="fa-solid fa-arrows-rotate"></i>
+            </button>
+        </div>
         <hr />
         <form id='gpa-form-elem'>
             {courseList.map((el, index) => (
